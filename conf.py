@@ -7,6 +7,7 @@ from os.path import expanduser
 import tempfile
 
 HOME = expanduser("~")
+# Change this to your path: 
 PATH = os.path.join(HOME, 'code', 'srmorph2')
 PATH_TEXTS = os.path.join(PATH, 'data', 'texts')
 PATH_PARSED = os.path.join(PATH, 'data', 'parsed')
