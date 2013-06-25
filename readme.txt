@@ -18,6 +18,9 @@ http://srmorph.languagebits.com
 This is where web interface is located (not distributed
 with this code).
 
+To see available commands from line inteface, type:
+$ python3 srmorph.py -h
+
 In case you create your own corpus, don't forget to edit
 readme template in conf.py. 
 
