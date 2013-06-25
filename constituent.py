@@ -87,5 +87,5 @@ def get_letters(word):
         try:
             letters[i] = letters[i] + 1
         except KeyError:
-            letters[i] = 0
+            letters[i] = 1
     return letters
