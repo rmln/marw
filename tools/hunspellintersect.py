@@ -4,7 +4,7 @@ Return words that are not found in hunspell.
 
 """
     # srmorph - Pythonic Experiments in Serbian Morphology
-    # Copyright (C) <year>  <name of author>
+    # Copyright (C) 2013 Romeo Mlinar
 
     # This program is free software: you can redistribute it and/or modify
     # it under the terms of the GNU General Public License as published by
