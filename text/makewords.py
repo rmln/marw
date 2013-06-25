@@ -67,10 +67,17 @@ def parse_all_files(overwrite=False):
     logfile = open(conf.PATH_PARSE_LOG, "w")
     filelist = []
     wordcount = 0
-    print("Loading from", conf.PATH_TEXTS)
-    print("Saving to", conf.PATH_PARSED)
+    print("Accepted extensions: %s" % ''.join(conf.PARSE_EXTENSIONS))
+    print("Source:", conf.PATH_TEXTS)
+    print("Saving parsed into:", conf.PATH_PARSED)
+    if overwrite:
+        print("Parsing all files: use overwrite=False if you wish" + \
+                  " to update only.")
+    else:
+        print("Parsing only new files: use overwrite=True if you wish" + \
+                  " to rebuild completely.")
     for files in os.listdir(conf.PATH_TEXTS):
-        if files.lower().endswith(".txt"):
+        if files.lower().endswith(conf.PARSE_EXTENSIONS):
             if not overwrite:
                 parsed = os.path.join(conf.PATH_PARSED, files)
                 if not os.path.exists(parsed):
@@ -109,7 +116,7 @@ def load_dictionaries(fromclass=False):
     """
     corpus = []
     for f in os.listdir(conf.PATH_PARSED):
-        if f.lower().endswith(".txt"):
+        if f.lower().endswith(conf.PARSE_EXTENSIONS):
             pf = os.path.join(conf.PATH_PARSED, f)
             content = open(pf, mode='r').readlines()
             corpus = corpus + content

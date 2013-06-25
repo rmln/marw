@@ -18,8 +18,13 @@ PATH_EXPORT_README = os.path.join(PATH_TEMP, 'readme.txt')
 PATH_EXPORT_TAR = os.path.join(HOME, NAME_CORPUSGZ)
 PATH_PARSE_LOG = os.path.join(PATH, 'data', 'parsing.log')
 
+# Extensions to parse. All are lowered during the indexing, so
+# no need to specify other capital forms.
+PARSE_EXTENSIONS = ('.txt',)
+
+
 # Applies to gui
-SETCACHEON = True
+SETCACHEON = False
 
 corpus_sources = """Source ID: antologijasrpskeknjizevnosti.rs
 
