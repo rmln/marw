@@ -67,7 +67,7 @@ two_char = {'Њ':'NJ', 'Џ':'DŽ', 'Љ':'LJ'}
 
 # Characters that can follow capital letter. TODO: Options
 # for this?
-INTERPUNCTION_CAPLETTER = "!?.'„“" + '"' + " "
+INTERPUNCTION_CAPLETTER = "!?.'„“" + '"' + " " + "»«–…"
 
 standard_exc = \
 """
