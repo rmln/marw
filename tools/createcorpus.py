@@ -23,7 +23,6 @@ http://srmorph.languagebits.com/database
     # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-
 import sys
 sys.path.append("../")
 
@@ -32,11 +31,11 @@ import similarity
 import conf
 import subprocess
 
-def generate_corpus():
+def generate_corpus(overwrite=True, packonly=False):
     """
     Save corpus.
     """
-    makewords.parse_all_files(overwrite=True)
+    makewords.parse_all_files(overwrite=overwrite)
     makewords.save_corpus()
 
 def pack_corpus():
@@ -61,5 +60,10 @@ def pack_corpus():
                            "srmorph-corpus.txt",
                            "readme.txt"])
     
-generate_corpus()    
-pack_corpus()
+
+def generate_and_pack():
+    """
+    Generate and pack the corpus.
+    """
+    generate_corpus()    
+    pack_corpus()

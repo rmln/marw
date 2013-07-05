@@ -26,14 +26,15 @@ sys.path.append("../")
 
 import os
 import string
+import random
 
 import conf
 import cyrconv
 crconv = cyrconv.CirConv()
 
-extrachar = '“„—®’”'
+extrachar = '“„—®’”»«–…' 
 
-def extract_words(text):
+def extract_words(text, f_errors, fname):
     """
     Extract words from text, stripping it from any interpunction.
     Returns: tuple.
@@ -49,10 +50,25 @@ def extract_words(text):
             tsplit.append(word)
     # Go over each "word"
     exclude = set(string.punctuation + string.digits + '\ufeff' + extrachar)
-    for s in tsplit:
-        s = s.strip().lower()
+    for s in tsplit: 
+        s = s.replace('\t', ' ')
+        s = s.strip()
+        s = s.lower()
         s = ''.join(c for c in s if c not in exclude)
+        # Is all text in this word Cyrillic?
         allcyr = crconv.is_all_cyrillic(s)
+        # What to do if not?
+        if not allcyr:
+            # First, check if the word contains only letters
+            # of the Serbian alphabet (no x, y, q)
+            if crconv.is_all_latin(s):
+                # It's safe to convert it to Cyrilic.
+                s = crconv.convert(s)
+                allcyr = True
+        # At this point allcyr should be False for all
+        # "invalid" words compared to Cyrillic alphabet
+        if not allcyr:
+            f_errors.write("noallcyr in %s: '%s'\n" % (fname, s))
         if (s not in ('', '\n', '\r')) and allcyr:
             words.append(s)
     return words
@@ -65,6 +81,7 @@ def parse_all_files(overwrite=False):
     processed.
     """
     logfile = open(conf.PATH_PARSE_LOG, "w")
+    f_errors = open(conf.PATH_PARSE_ERRORLOG, mode='w')
     filelist = []
     wordcount = 0
     print("Accepted extensions: %s" % ''.join(conf.PARSE_EXTENSIONS))
@@ -93,7 +110,7 @@ def parse_all_files(overwrite=False):
         print("Processing %s..." % f)
         fp = os.path.join(conf.PATH_TEXTS, f)
         text = open(fp, mode='r').read()
-        ptext = extract_words(text)
+        ptext = extract_words(text, f_errors, f)
         # Lengths
         wordsall = len(ptext)
         wordsunique = len(set(ptext))
@@ -106,8 +123,12 @@ def parse_all_files(overwrite=False):
         wordcount = wordcount + len(ptext)
         open(os.path.join(conf.PATH_PARSED, f), 
              mode='w').write('\n'.join(ptext))
+    f_errors.close()
     print("\ntotal (with repeats) %s" % wordcount, file=logfile)
     print("Total word count is", wordcount)
+    f = open(conf.PATH_PARSE_ERRORLOG, mode="r").readlines()
+    print("Rejected 'words':", len(f))
+    
         
 
 def load_dictionaries(fromclass=False):
@@ -115,13 +136,13 @@ def load_dictionaries(fromclass=False):
     Load available dictionaries.
     """
     corpus = []
-    for f in os.listdir(conf.PATH_PARSED):
-        if f.lower().endswith(conf.PARSE_EXTENSIONS):
-            pf = os.path.join(conf.PATH_PARSED, f)
-            content = open(pf, mode='r').readlines()
-            corpus = corpus + content
-    # Strip all words:
-    corpus = [i.strip() for i in corpus]
+    for f in get_parsedlist(show=False):
+        pf = os.path.join(conf.PATH_PARSED, f)
+        content = open(pf, mode='r').readlines()
+        corpus = corpus + content
+    # Assert that there are no spaces/endlines in
+    # randomly selected word.
+    #assert (' ' and '\n') not in random.choice(corpus)
     lenall = len(corpus)
     ucorpus = set(corpus)
     lenunique = len(ucorpus)
@@ -136,6 +157,7 @@ def load_dictionaries(fromclass=False):
               file=logfile)
     return(ucorpus)
 
+
 def save_corpus():
     """
     Save corpus to PATH_EXPORT_CORPUS.
@@ -146,6 +168,7 @@ def save_corpus():
     open(conf.PATH_EXPORT_CORPUS, mode='w').write(''.join(corpus))
     print("Written to", conf.PATH_EXPORT_CORPUS)
 
+
 def get_perc(x, y):
     """
     Returns percentage of x in y.
@@ -153,3 +176,20 @@ def get_perc(x, y):
     if x == 0 or y == 0:
         return 0
     return round((x/y)*100)
+
+
+def get_parsedlist(show=False):
+    """
+    Return the list of the parsed files that will be used in
+    corpus creation.
+    """
+    flist = []
+    for f in os.listdir(conf.PATH_PARSED):
+        if f.lower().endswith(conf.PARSE_EXTENSIONS):
+            flist.append(f)
+    if show:
+        print("Files will be loaded from %s" % conf.PATH_PARSED)
+        print('\n\t'.join(flist))
+        print("Total", len(flist), "files.")
+    else:
+        return flist
