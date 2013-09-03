@@ -1,8 +1,8 @@
 """
-
-Labels for class elements.
-
+Labels for misc elements.
 """
+
+import conf
 
 LB = {'cases_full':{0:'nominative',
                     1:'genitive',
@@ -54,3 +54,15 @@ LB = {'cases_full':{0:'nominative',
                              }
       
 }
+
+def generate_labels():
+    """
+    Return a dictionary with labels.
+    """
+    dlab = {}
+    for line in open(conf.PATH_TABLABELS).readlines():
+        items = [i.strip() for i in line.split('\t')]
+        dlab[items[0]] = [i for i in items[1:]]
+    return dlab
+
+codes = generate_labels()
