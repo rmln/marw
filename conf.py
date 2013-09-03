@@ -19,8 +19,8 @@ PATH_CROD = os.path.join(PATH, 'data', 'HR_Txt_538.txt')
 # for corpus creation, so the prepared file is stored as NAME_PARSED_CRO.
 NAME_PARSED_CRO = 'croatian.txt'
 # If SETUSECRO is set to True, the program will convert
-# Croatian words to Cyrrilic and remove the ones containing
-# non-Cyrilic letters. 
+# Croatian words to Cyrillic and remove the ones containing
+# non-Cyrillic letters. 
 SETUSECRO = False
 
 NAME_CORPUSGZ = 'srmorph-corpus.tar.gz'
@@ -32,13 +32,12 @@ PATH_PARSE_LOG = os.path.join(PATH, 'data', 'parsing.log')
 PATH_PARSE_ERRORLOG = os.path.join(PATH, 'data', 'errors-parsing.log')
 PATH_TABLABELS = os.path.join(PATH, 'resource', 'labels.csv')
 
-# Extensions to parse. All are lowered during the indexing, so
-# no need to specify other capital forms.
+# Extensions to parse. All are lowercased during the indexing, so
+# no need to specify other forms.
 PARSE_EXTENSIONS = ('.txt',)
 
 # Applies to web gui at http://srmorph.languagebits.com/
 SETCACHEON = False
-
 
 corpus_sources = {'dict-sr': "Serbian (Cyrillic and Latin) Hunspell spelling dictionary by Goran Rakić.\nURL https://gitorious.org/dict-sr",
 

@@ -103,7 +103,7 @@ def parse_all_files(overwrite=False, usecroatian=conf.SETUSECRO):
         else:
             print("Croatian dictionary is not prepared, extracting...")
             croparser.parse_crobase()
-            print("Continuing with parssing.")
+            print("Continuing with parsing.")
     for files in os.listdir(conf.PATH_TEXTS):
         if files.lower().endswith(conf.PARSE_EXTENSIONS):
             if not overwrite:
