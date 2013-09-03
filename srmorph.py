@@ -30,6 +30,7 @@ import getopt
 
 sys.path.append("../")
 
+import conf
 from tools import croparser
 from tools import createcorpus
 from text import makewords
@@ -64,6 +65,7 @@ if __name__ == "__main__":
             croparser.parse_crobase()
         if o in ('-e', '--exportcorpus'):
             createcorpus.generate_corpus()
+            createcorpus.pack_corpus()
         if o in ('-E', '--exportcorpusnp'):
             createcorpus.generate_corpus(overwrite=False)
             createcorpus.pack_corpus()
