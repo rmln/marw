@@ -3,6 +3,8 @@ Miscellaneous helper functins.
 """
 
 import os
+import conf
+import copy
 
 def fsize(path):
     """
@@ -19,3 +21,19 @@ def sort_dictionary(d):
     for i in d:
         d[i] = d[i].sort()
     return d
+
+def compile_sources():
+    """
+    Compile sources for corpus.
+    """
+    template = "\n\nSource id:%s\n\n%s"
+    text = []
+    src = copy.deepcopy(conf.corpus_sources)
+    if not conf.SETUSECRO:
+        # Croatian dictionary not used
+        del src['HR.Txt']
+    for s in src:
+        #print(s)
+        #print(src[s])
+        text.append(template % (s, src[s]))
+    return ''.join(text)
