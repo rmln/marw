@@ -1,0 +1,114 @@
+999	column_tag	column_desc_short_english	column_desc_short_croatian	column_desc_short_serbian	column_example_croatian	column_comment_croatian	column_example-transformations_croatian
+10	misc_geog	geographical term	geografski pojam	географски појам	Zagreb, Albanija, Torino, Afrika, Amsterdam	 	 
+101	misc_has_synonym	has a synonym	ima sinonim	има синоним	ujutru-ujutro	 	 
+102	verb_aux_want	auxiliary verb “to want”	pomoćni glagol htjeti	помоћни глагол хтјети	 	u svim oblicima - i potvrdnim i niječnim	 
+103	pronoun_rel	relative pronoun	odnosna zamjenica	односна замјеница	 	 	 
+104	pronoun_poss	possessive pronoun	posvojna zamjenica	присвојна замјеница	 	 	 
+105	pronoun_ind	indefinite pronoun	neodređena zamjenica	неодређена замјеница	 	 	 
+106	pronoun_dem	demonstrative pronoun	pokazna zamjenica	показна замјеница	 	 	 
+107	verb_tran	transitive verb	prelazni glagol	прелазни глагол	 	 	 
+108	verb_intr	intransitive verb	neprelazni glagol	непрелазни глагол	 	 	 
+109	verb_impf_has_pef	imperfective verb form that also has listed perfective form	nesvršeni oblik glagola za kojega postoji i svršeni oblik	несвршени облик глагола за којега постоји и свршени облик	objavljivati, odjavljivati, otkazivati	 	objavljivati>objaviti, odjavljivati>odjaviti, otkazivati>otkazati
+110	verb_perf_has_imp	perfective verb form that also has listed imperfective form	svršeni oblik glagola za kojeg postoji i nesvršeni oblik	свршени облик глагола за којег постоји и несвршени облик	objaviti	U tablici veza zapisuje se veza nesvršeni>svršeni	 
+121	dialect_kajkavian	kajkavian dialect 	kajkavski	кајкавски	fiškal, kak, kaj	sinonim iz književnog jezika za kajkasku riječ	fiškal>advokat, kak>kaklo, kaj>što
+126	spelling_dc	spelled with -dc-	način pisanja sa -dc-	начин писања са -дц-	sudca, želudcu, domorodca	sudca, bodca, želudcu	sudca>suca, bodca>boca, želudcu>želucu
+127	spelling_tc	spelled with -tc-	način pisanja sa -tc-	начин писања са -тц-	gubitci, zadatci	 	 
+128	spelling_oe	note the use of o/e	kutevi, putevi (za razliku od kutovi, putovi)	кутеви, путеви (за разлику од кутови, путови)	 	 	 
+129	meaning_similar	similar or the same meaning	slično ili isto značenje	слично или исто значење	 	 	baltski>baltički, bliski>blizak, črkar>čarkač
+13	abbr_capital	abbreviation – capital letters	kratica - velika slova	скраћеника - велика слова	UNPROFOR, UNESCO	 	 
+135	misc_almost_typo	almost a typo	skoro pa tipfeler	скоро па словна грешка	menedžer	sumnjivi način pisanja - možda je krivi, a možda i nije	menedžer>menadžer
+136	verb_impf	imperfect verb	glagol - nesvršeni	глагол - несвршени	otključavati	Ovo gledamo samo kao podvrstu riječi	 
+137	noun_person	noun denoting a person	imenica - osoba	именица - особа	Zagrepčanin	 	 
+14	abbr_fullstop	abbreviation – full stop	kratica s točkom	скраћениса са тачком	dr., mr., čl., pl., mađ., vs.	 	 
+16	noun_inhabitant	member of a nation, state, region, town inhabitant	pripadnik naroda, države, kraja, stanovnik grada	припадник народа, државе, краја, становник града	Albanac, Hrvat, Kinez, Viking, brđanin	 	Albanac>Albanija,Hrvat>Hrvatska, Kinez>Kina,Viking>???,brđanin>brdo
+163	noun_herbal	plant family	biljna porodica	биљна породица	gnemonovka	 	 
+17	noun_company	name of a company 	naziv tvrtke	назив предузећа	Plinacro, Interpol, Belupo, Goodyear, Varteks, Renault, Grundig	 	 
+18	abbr_lowercap	abbreviation – lower case letters	kratica - mala slova	скраћеница - мала слова	kn, mm, m, dag, km, Hz	 	 
+19	noun_persnameforeign	personal name – foreign	osobno ime - strano	властито име - страно	Bill, Sharon, Madelaine, Anna, Christian	 	 
+20	noun_surnameforeign	surname – foreign	prezime - strano	презиме - страно	Powell, Davenport, Fischer	 	 
+21	adj_material	adjective denoting a material	pridjev - oznaka materijala	придјев - ознака материјала	oleandrast, kutijast, brežuljkast, trstikast	oznaka mateijala od kojeg je nešto napravljeno i slično	oleandrast>oleander, kutijast>kutija
+22	misc_langen	word origin – English 	strana riječ - engleski	страна ријеч - енглески	blue, press, average, best, business	 	 
+23	person_politics	politician	političar	политичар	Chirac, Bush, Sanader, Blair	 	 
+24	noun_club	sport club	sportski klub	спортски клуб	Cibona Barcelona, Juventus, Maccabi, Marsonia, Rea	 	 
+25	noun_f_has_m	feminine form that has also listed masculine form	ženski oblik nečega što postoji u rječniku kao muški	женски облик нечега што постоји у рјечнику као мушки	sutkinja, svjedokinja, telefonistkinja, avanturistica	 	sutkinja>sudac,scjedokinja>svjedok, telefonistkinja>telefonist,avanturistica>avanturist
+26	noun_romannumeral	Roman numeral	rimski broj	римски број	VIII, IX, VII, III, XIV	 	VIII>osam,IX>devet,VII>sedam
+27	noun_foreignoftenused	foreign word now commonly used	strana riječ koja se udomaćila	страна ријеч која се одомаћила	brand, city, cookie, piercing, rollerball	 	 
+28	adj_ending_skishki	adjective ending in -ski -ški	pridjev na -ski, -ški	придјев на -ски, -шки	daytonski, nikaragvanski, požeški, ukrajinski	 	daytonski>Dayton,nikaragvanski>Nikaragva,požeški> Požega,ukrajinski>Ukrajina
+29	adj_ending_ovev	adjective ending in -ov -ev	pridjev na -ov, -ev	придјев на -ов, -ев	Dinamov, Markov, Nobelov, Zagrebov, Tuđmanov, Diracov, Newtonov	 	Dinamov>Dinamo,Markov>Marko,Nobelov>Nobel,Zagrebov>Zagreb,Tuđmanov>Tuđman, Diracov>Dirac,Newtonov>Newton
+30	misc_lang_lat	Latin	latinski	латински	amarilidaceae, cuculiformes, Microcytos, orchidaceae	 	 
+301	noun	noun	imenica	именица	 	 	 
+302	adj	adjective	pridjev	придјев	 	 	 
+303	verb	verb	glagol	глагол	 	 	 
+304	adv	adverb	prilog	прилог	 	 	 
+305	pron	pronoun	zamjenica	замјеница	 	 	 
+306	prep	preposition	prijedlog	предлог	 	 	 
+307	conj	conjunction	veznik	везник	 	 	 
+308	number	number	broj	број	 	 	 
+309	int	interjection	uzvik	узвик	 	 	 
+31	adj_ending_in	adjective ending in -in	pridjev na -in	придјев на -ин	Krležin, Cibonin, Inin, Jahvin, Eleonorin, komisijin, Marijin	 	Krležin>Krleža,Cibonin>Cibona,Inin>INA,Jahvin>Jahve, Eleonorin>Eleonora,komisijin>komisija,Marijin>Marija
+310	particle	particle	čestica	рјечца	 	 	 
+311	onomat	onomatopoeia	onomatopeja	ономатопеја	 	 	 
+312	prefix	prefix	prefiks	префикс	 	 	 
+313	abbr	abbreviation	kratica	скраћеница	 	 	 
+314	letter	letter	slovo	слово	 	 	 
+315	misc	miscellaneous	ostalo	остало	 	 	 
+32	dim	diminutive	deminutiv	деминутив	loptica, sobica, tornjić, medaljica,životinjica	 	loptica>lopta,sobica>soba,tornjić>toranj,medaljica>medalja,životinjica>životinja
+33	slang	slang	sleng	сленг	lova, treba, lovaš	 	lova>novac, treba>djevojka, lovaš>bogataš
+34	misc_month_sr	month name – Serbian	srpski naziv mjeseca	српски назив мјесеца	maj, mart, april	 	maj>svibanj,mart>ožujak,april>travanj
+35	verb_durative	durative verb	glagol - trajni oblik	глагол - трајни облик	dosoljavati	trajni oblik glagola za kojega postoji i svršeni oblik. Tvorba nije prefiksna (dakle, tu NE spada soliti>dosoliti, soliti>posoliti, gledati>pogledati, gledati>ugledati...)	dosoljavati>dosoliti
+36	misc_astro	astrology term	pojam iz astronomije	појам из астрономије	Merkur, Venera, Mjesec	 	 
+37	adj_ending_chki	adjective ending in -čki	pridjev na -čki	придјев на -чки	moslavački, plitvički, slovački	 	moslavački>Moslavina,Plitvički>Plitvice,slovački>Slovačka
+38	noun_sportsperson	sportsmen doing a sport	sportaš koji se bavi nekim sportom	спортиста који се бави неким спортом	odbojkaš, rukometaš, vaterpolist, nogometaš, skijaš	 	odbojkaš>odbojka,rukometaš>rukomet,vaterpolist>vaterpolo, nogometaš>nogomet,skijaš>skijanje
+39	adv_fromnoun	adverb derived from a noun	prilog - nastao od imenice	прилог - настао од именице	greškom, trkom, dijelom, kopnom, krajem	 	greškom>greška, trkom>trk, dijelom>dio, kopnom>kopno, krajem>kraj
+40	misc_multiple	denotes multitude	oznaka brojnosti	ознака бројности	osamdesetak, pedeset, pedesetak	 	???
+41	misc_partoftown	part of city/town	dio grada	дио града	Pantovčak, Medveščak, Remetinec, Šalata, Špansko, Trešnjevka, Trnsko, Tuškanac	 	Pantovčak>Zagreb, Medveščak>Zagreb, Remetinec>Zagreb
+42	misc_optdash	dash that might become obsolete	crtica koja će možda ispasti	цртица која ће можда испасти	remek-djelo>remekdjelo, foto-polimerizacija, anti-statički>antistatički	 	remek-djelo>remekdjelo, foto-polimerizacija, anti-statički>antistatički
+43	misc_regional	regional	regionalno	регионално	šerpa, točak	 	šerpa>???, točak>kotač
+44	misc_sports_cro_sh	Croatian “šport” word	šport	шпорт	šport za razliku od sport	 	 
+45	prefix	prefix	prefiks	префикс	avio (transport), homo	 	 
+46	adj_degree_1	adjective – comparative degree	komparativ pridjeva	компаратив придјева	trajniji, tužniji, sušniji, učinkovitiji, viši, općenitiji	 	trajniji>trajan,tužniji>tužan,sušniji>sušan, učinkovitiji>učinkovit,viši>visok
+461	adv_degree_1	adverb – comparative degree	komparativ priloga	компаратив прилога	 	 	 
+47	misc_lang_fr	word origin – French 	strana riječ - francuski	страна ријеч - француски	Cote	 	 
+48	noun_ending_ost	noun ending in -ost	imenica na -ost	именица на -ост	abnormalnost, autentičnost, samostalnost, mudrost	 	abnormalnost>abnormalan,autentičnost>autentičan, samostalnost>samostalan,mudrost>mudar
+49	misc_plurals	plural form usually listed in the dictionary	množina koja se prirodno javlja u rječniku	множина која се природно јавља у рјечнику	tračnice, ljestve, škare	 	tračnice>tračnica,ljestve>???
+5	misc_propername	proper name	vlastito ime	властито име	Belzebub, Islam, Jazine	 	 
+50	misc_month	name of a month	mjesec	мјесец	veljača, studeni, siječanj, svibanj	 	 
+51	aug	augmentative	augmentativ	аугментатив	trbušina, komadina, konjina, seljačina	 	trbušina>trbuh,komdina>komad,konjina>konj,seljačina>seljak
+52	noun_ending_anje	noun ending in -anje	imenica na -anje	именица на -ање	armiranje, biranje, gađanje, nadziranje	 	armiranje>armirati, biranje>birati, gađanje>gađati, nadziranje>nadzirati
+53	noun_ending_enje	noun ending in -enje	imenica na -enje	именица на -ење	bratimljenje, curenje, opterećenje, rukovođenje	 	bratimljenje>bratimiti, curenje>curiti, opterećenje>opteretiti, rukovođenje>rukovoditi
+54	degree_2	superlative degree	superlativ	суперлатив	najveći, najnoviji, najdeblji, najbitniji, najdublji	 	najveći>veći, najnoviji>noviji, najdeblji>deblji, najbitniji>bitniji, najdublji>dublji
+55	pej	pejorative	pogrdno	погрдно	selendra, seljačina	 	 
+56	misc_svakodnevica	form: svakodnevica	svakodnevica	свакодневица	svakodnevica	 	 
+-56	misc_svakodnevnica	form: svakodnevnica	svakodnevnica	свакодневница	svakodnevnica	 	 
+57	misc_datename	holiday, a day in year	blagdan, dan u godini	празник, дан у години	Tijelovo, Božić, Uskrs, Valentinovo	 	 
+58	misc_coll	colloquial	razgovorno	разговорно	nemasan, elemenat	 	 
+59	misc_partofname	part of a name	dio naziva	дио назива	Addis (Abeba), Siera (Leone)	 	Addis>Addis Abeba, Siera>Sierra Leone
+60	misc_informal	informal	nije književna riječ	није књижевна ријеч	pajdaš, pimpek, šajser, šalabajzanje, fermati, faulirati	"riječ koja nije književna, ali se puno koristi. Nekada postoji zamjena iz književnog jezika, a nekad ne Koja je zamjena za ""fermati""?"	 
+61	misc_botanic	type of a plant	biljna sorta	биљна сорта	eupatorium, filipendula, filitis, fisostegija, fizostegija, aktea	 	 
+62	misc_animal	animal species	životinjska vrsta	животињска врста	gologlavka	 	 
+63	adj_ending_ast	adjective ending in -ast	pridjev na -ast	придјев на -аст	 	 	 
+64	misc_chem	chemical compound	kemijski spoj	хемијско једињење	heksacijanoferat, tetrafenilborat, tosilkloramid, monoetil	 	 
+65	misc_disease	disease	bolest	болест	hipodermoza, iridoviroza, mastitis, metritis, mijaza, oftalmija	 	 
+66	misc_hasprefered	there is a preferred word listed	postoji bolja riječ	постоји боља ријеч	bjelance, rđav	 	bjelance>bjelanjak, rđav>loš
+666	misc_istypo	typo	tipfeler	словна грешка	 	 	 
+667	misc_uncommon	exotic, might be removed	toliko egzotično da bih najradije bacio van	толико егзотично да бих најрадије бацио ван	 	 	 
+67	negation	negation	negacija	негација	nehrđajući, neinflacijski, neosjetljiv, nereagiranje	 	nehrđajući>hrđajući, neinflacijski>inflacijski, neosjetljiv>osjetljiv, nereagiranje>reagiranje
+68	misc_person_historical	historical figure	povijesna ličnost	историјска личност	Neron	 	 
+69	noun_ending_acija	noun ending in -acija	imenica na -acija	именица на -ација	abdikacija, akumulacija, dokumentacija	 	abdikacija>abdicirati, akumulacija>akumulirati, dokumentacija>dokumentirati
+70	misc_sportsname	sport name	naziv sporta	назив спорта	nogomet, rukomet, košarka	 	 
+71	adj_ending_ni	adjective ending in -ni	pridjev na -ni	придјев на -ни	nogmetni, rukometni	 	nogometni>nogomet, rukometni>rukomet
+72	verb_paadpa	adverbial present participle	glagolski prilog prošli -vši	глаголски прилог прошли -вши	afirmiravši, deformiravši, doživjevši	Prilog našao od svršenog glagola	afirmiravši>afirmirati, deformiravši>defirmirati, doživjevši>doživjeti
+73	verb_paadpr	adverbial past participle	glagolski prilog sadašnji -ući	глаголски прилог садашњи -ући	aludirajući, dobacujući, favorizirajući	Glagol iz kojeg nastaje glagolski prilog sadašnji je nesvršeni glagol	aludirajući>aludirati, dobacujući>dobacivati, favorizirajući>favorizirati
+74	verb_pasrpart	past participle	glagolski pridjev	глаголски придјев	animiran, ilustriran, maskiran, premazan	 	animiran>animirati, ilustriran>ilustrirati, maskiran>maskirati, premazan>premazati
+75	adv_fromadj	adverb derived from an adjective	prilog - nastao od pridjeva	прилог - настао од придјева	izdvojeno, polagano, snažno	Nepromjenjiva riječ, dakle, ne može se pojaviti kao osnovni oblik	izdvojeno>izdvojen, polagano>polagan, snažno>snažan
+76	pron_personal	personal pronoun	osobna zamjenica	лична замјеница	ona, on, mi, vi	 	 
+77	misc_notcro	not a Croatian word	nije hrvatska riječ	није хрватска ријеч	točkić, kašika, točak, fudbal, stomak, cenzurisati	 	stomak>trbuh, fudbal>nogomet, cenzurisati>cenzurirati
+78	misc_lang_it	word origin – Italian	strana riječ - talijanski	страна ријеч – италијански	della	 	 
+8	name_proper	proper name	osobno ime	властито име	Mirko, Pero, Marija, Adam, Aleksandar	 	 
+9	name_surname	surname	prezime	презиме	Iveković, Horvat, Antunović, Bago	 	 
+92	letter	letter	slovo	слово	a, b, c, A, B, C	 	 
+94	onomat	onomatopoeia	onomatopeja	ономатопеја	kre, pljes	 	 
+95	noun_collective	collective noun	zbirna imenica	збирна именица	dugmad, novorođenčad, siročad	 	dugmad>dugme, novorođenčad>novorođenče, siročad>siroče
+96	adj_numeral	???	brojčani pridjev	бројчани придјев	četvrti, trideseti, peti	redni broj	četvrti>četiri, trideseti>trideset, peti>pet
+97	adj_frompron	???	zamjenički pridjev	замјенички придјев	neki, koji, čiji, svaki	 	 
+999	vulgar	vulgar	prosta riječ	проста ријеч	jebati, kurac, kurva, pizdolizac	 	 
