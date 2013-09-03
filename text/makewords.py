@@ -32,6 +32,8 @@ import conf
 import cyrconv
 crconv = cyrconv.CirConv()
 
+from tools import croparser
+
 extrachar = '“„—®’”»«–…' 
 
 def extract_words(text, f_errors, fname):
@@ -74,7 +76,7 @@ def extract_words(text, f_errors, fname):
     return words
 
 
-def parse_all_files(overwrite=False):
+def parse_all_files(overwrite=False, usecroatian=conf.SETUSECRO):
     """
     Process all files and extract words.
     If overwrite is False, skip files that are already
@@ -93,6 +95,15 @@ def parse_all_files(overwrite=False):
     else:
         print("Parsing only new files: use overwrite=True if you wish" + \
                   " to rebuild completely.")
+    # Croatian dictionary check
+    if usecroatian:
+        print("Checking if Croatian dictionary is present...")
+        if os.path.exists(os.path.join(conf.PATH_TEXTS, conf.NAME_PARSED_CRO)):
+            print("Croatian dictionary is prepared for parsing, skipping...")
+        else:
+            print("Croatian dictionary is not prepared, extracting...")
+            croparser.parse_crobase()
+            print("Continuing with parssing.")
     for files in os.listdir(conf.PATH_TEXTS):
         if files.lower().endswith(conf.PARSE_EXTENSIONS):
             if not overwrite:
@@ -103,7 +114,15 @@ def parse_all_files(overwrite=False):
                     print("Skipping %s." % files)
             else:
                 filelist.append(files)
-
+    # Check for Croatian file exclusion:
+    if usecroatian:
+        print("Croatian dictionary will be used.")    
+    else:
+        if conf.NAME_PARSED_CRO in filelist:
+            filelist.remove(conf.NAME_PARSED_CRO)
+            print("Croatian dictionary removed from the parsing list.")
+        else:
+            print("Croatian dictionary not in the list.")
     print("Indexed", len(filelist), "files.")
     for f in filelist:
         path = os.path.join(conf.PATH_TEXTS, f)

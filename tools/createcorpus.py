@@ -26,10 +26,13 @@ http://srmorph.languagebits.com/database
 import sys
 sys.path.append("../")
 
+import subprocess
+
 from text import  makewords
 import similarity
+import helpers
 import conf
-import subprocess
+
 
 def generate_corpus(overwrite=True, packonly=False):
     """
@@ -46,7 +49,7 @@ def pack_corpus():
     print("Creating readme...")
     readme = open(conf.PATH_EXPORT_README, "w")
     text = conf.corpus_readme % {
-        'sources':conf.corpus_sources,
+        'sources':helpers.compile_sources(),
         'log':open(conf.PATH_PARSE_LOG, 'r').read()
         }
     readme.write(text)
@@ -67,3 +70,4 @@ def generate_and_pack():
     """
     generate_corpus()    
     pack_corpus()
+
