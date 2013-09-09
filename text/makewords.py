@@ -29,8 +29,7 @@ import string
 import random
 
 import conf
-import cyrconv
-crconv = cyrconv.CirConv()
+import helpers
 
 from tools import croparser
 
@@ -43,13 +42,17 @@ def extract_words(text, f_errors, fname):
     """
     words = []
     tsplit = []
-    # Split them
-    _temp = text.split(" ")
-    for word in _temp:
-        if '\n' in word:
-            tsplit = tsplit + word.split('\n')
-        else:
-            tsplit.append(word)
+    if isinstance(text, str):
+        # Split text by space
+        _temp = text.split(" ")
+        for word in _temp:
+            if '\n' in word:
+                tsplit = tsplit + word.split('\n')
+            else:
+                tsplit.append(word)
+    else:
+        # The text is list/tuple, so just remove spaces/breaks
+        tsplit = [t.strip() for t in text]
     # Go over each "word"
     exclude = set(string.punctuation + string.digits + '\ufeff' + extrachar)
     for s in tsplit: 
@@ -57,24 +60,13 @@ def extract_words(text, f_errors, fname):
         s = s.strip()
         s = s.lower()
         s = ''.join(c for c in s if c not in exclude)
-        # Is all text in this word Cyrillic?
-        allcyr = crconv.is_all_cyrillic(s)
-        # What to do if not?
-        if not allcyr:
-            # First, check if the word contains only letters
-            # of the Serbian alphabet (no x, y, q)
-            if crconv.is_all_latin(s):
-                # It's safe to convert it to Cyrilic.
-                s = crconv.convert(s)
-                allcyr = True
-        # At this point allcyr should be False for all
-        # "invalid" words compared to Cyrillic alphabet
-        if not allcyr:
+        s = helpers.cyrrilic_check_convert(s)
+        if s == False:
             f_errors.write("noallcyr in %s: '%s'\n" % (fname, s))
-        if (s not in ('', '\n', '\r')) and allcyr:
+        if (s not in ('', '\n', '\r')):
             words.append(s)
     return words
-
+    
 
 def parse_all_files(overwrite=False, usecroatian=conf.SETUSECRO):
     """

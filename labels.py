@@ -55,6 +55,20 @@ LB = {'cases_full':{0:'nominative',
       
 }
 
+POS_CRO = {'broj': 'number',
+           'prijedlog': 'prep', 
+           'imenica': 'n', 
+           'prilog': 'adv',
+           'zamjenica': 'pron',
+           'čestica': 'part', 
+           'kratica': 'abbr',
+           'veznik': 'conj', 
+           'uzvik': 'int',
+           'pridjev': 'adj',
+           'glagol':'v',
+           '':''}
+
+
 def generate_labels():
     """
     Return a dictionary with labels.

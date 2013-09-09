@@ -12,8 +12,16 @@ PATH = os.path.join(HOME, 'code', 'srmorph2')
 PATH_TEXTS = os.path.join(PATH, 'data', 'texts')
 PATH_PARSED = os.path.join(PATH, 'data', 'parsed')
 PATH_TEMP = tempfile.gettempdir()
+PATH_TMPPARSE = os.path.join(PATH, 'data', 'tempparse.txt')
+PATH_SERBIAN = os.path.join(PATH, 'data', 'serbian.txt')
 
-# Path to Goran Igaly's Dictionatry of Croatian Languages
+# Serbian hunspell data
+HUNSPELL_PATH = os.path.join(PATH_TEXTS, 'hunspell-sr.txt')
+# When comparing corpus with hunspell words, save the words which
+# are not in hunspell into HUNSPELL_DIFF_PATH.
+HUNSPELL_DIFF_PATH = os.path.join(PATH, 'data', 'hunspell-diff.txt') 
+
+# Path to Goran Igaly's Dictionary of Croatian Languages
 PATH_CROD = os.path.join(PATH, 'data', 'HR_Txt_538.txt')
 # Igaly's Dictionatry uses several columns, but we need only one
 # for corpus creation, so the prepared file is stored as NAME_PARSED_CRO.

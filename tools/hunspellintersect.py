@@ -26,11 +26,8 @@ sys.path.append("../")
 import conf
 from text import  makewords
 
-HUNSPELL_PATH = os.path.join(conf.PATH_TEXTS, 'hunspell-sr.txt')
-DIFF_PATH = os.path.join(conf.PATH, 'data', 'hunspell-diff.txt')
-
 corpus = set(makewords.load_dictionaries())
-hunspell = open(HUNSPELL_PATH, mode='r').readlines()
+hunspell = open(conf.HUNSPELL_PATH, mode='r').readlines()
 
 hcorpus = set(hunspell)
 
@@ -44,5 +41,5 @@ diff = list(diff)
 diff.sort()
 
 print("There is %s words that are not wound in hunspell." % len(diff))
-open(DIFF_PATH, mode='w').write(''.join(diff))
-print("Saved to %s" % DIFF_PATH)
+open(conf.HUNSPELL_DIFF_PATH, mode='w').write(''.join(diff))
+print("Saved to %s" % conf.HUNSPELL_DIFF_PATH)
