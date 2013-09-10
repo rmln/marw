@@ -66,7 +66,7 @@ POS_CRO = {'broj': 'number',
            'uzvik': 'int',
            'pridjev': 'adj',
            'glagol':'v',
-           '':''}
+           '':'NA'}
 
 
 def generate_labels():
