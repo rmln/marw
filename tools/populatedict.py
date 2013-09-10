@@ -1,15 +1,17 @@
 """
 
-The purpose of this script is to populate (expand) Goran Igaly's Dictionary
-of Croatian Languages with Serbian equivalents.
+The purpose of this script is to create a Serbian version of Goran Igaly's
+Dictionary of Croatian Languages.
 
-This is to be achieved by the following:
+This is achieved by the following:
 
 1. Load Croatian dictionary.
-2. Iterate of each element in the first column, convert to
-   Cyrillic and see if the same word exist in hunspell-sr.
-   If yes, add the word into new column.
-
+2. Iterate over each element in the first column.
+3. Check if the item is valid Serbian entry (can be
+   converted to Cyrillic-only form).
+4. If the item is valid, convert the second item in
+   the entry ('base' of the word). Also, convert
+   POS identifier to an English version (via labels.POS_CRO).
 """
 
 import os
@@ -22,33 +24,36 @@ import helpers
 from text import makewords
 from labels import POS_CRO
 
+# Cunter por POS (now many nouns, verbs etc.)
 dpos = {}
 
 def populate_serbian():
     """
-    Populate HR dictionary with Serbian equivalents.
+    Create SR dictionary based on HR.
     """
     parsed = []
     serbian = []
     print("Loading dictionaries...")
     dic_croatian = open(conf.PATH_CROD).readlines()
-    dic_serbian =  [w.strip() for w in open(conf.HUNSPELL_PATH).readlines()]
+    dic_serbian_full =  [w.strip() for w in open(conf.HUNSPELL_PATH).readlines()]
     # Converting it to set makes 'in' operation
     # much, much faster.
-    dic_serbian = set(dic_serbian)
-    print("Lines in Croatian dictionary:\t%s" % len(dic_croatian))
-    print("Unique lines in Serbian dictionary:\t%s" % len(dic_serbian))
+    dic_serbian = set(dic_serbian_full)
+    print("Items in Croatian dictionary:\t%s" % len(dic_croatian))
+    print("Items Serbian dictionary:\t%s" % len(dic_serbian_full))
+    print("Uniques in Serbian dictionary:\t%s" % len(dic_serbian))
     f_parse = open(conf.PATH_TMPPARSE, 'w')
     f_serbian = open(conf.PATH_SERBIAN, 'w')
     print("Started parsing...")
+    # Just counters
     perc_ten = int(len(dic_croatian) / 10)
     counter = 0
     perc = 1
     for line in dic_croatian:
         if counter == 0:
-            print("0% done...")
+            print("Done 0%...")
         if counter > perc_ten*perc:
-            print("%s0%% done..." % perc)
+            print("Done %s0%% (~%s items)..." % (perc, counter))
             perc = perc + 1
         cro_line_split = croline_rebuild(line)
         head_cyr_from_cro = helpers.cyrrilic_check_convert(cro_line_split[0])
@@ -61,10 +66,20 @@ def populate_serbian():
         counter = counter + 1
     f_serbian.write('\n'.join(serbian))
     f_serbian.write('\n')
-    print("Done parsing.")
-    print("POS distribution:")
+    print("Done parsing. Stats follow.")
+    print("")
+    print("POS DISTRIBUTION:")
     for i in dpos:
         print('%s\t%s' % (i, dpos[i]))
+    print("")
+    print("COUNT & PERCENTAGES")
+    print("Items in newly created Serbian dictionary: %s" % len(serbian))
+    print("Serbian dictionary contains %s%% of Croatian dictionary." \
+              % helpers.perc(len(serbian), len(dic_croatian)))
+    print("Serbian dictionary contains %s%% of original hunspell dictionary." \
+              % helpers.perc(len(serbian), len(dic_serbian_full)))
+    print("And for the record, hunspell-sr contains %s%% of original items." \
+              % helpers.perc(len(dic_serbian), len(dic_serbian_full)))
         
 
 def croline_to_serbian(head_cyr_from_cro, line):
