@@ -61,3 +61,9 @@ def cyrrilic_check_convert(word):
     # At this point allcyr should be False for all
     # "invalid" words compared to Cyrillic alphabet   
     return allcyr
+
+def perc(x, y, r=2):
+    """
+    Return percentage of x in y.
+    """
+    return round(100 * float(x)/float(y), r)
