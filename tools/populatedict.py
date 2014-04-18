@@ -39,12 +39,16 @@ def populate_serbian():
     # Converting it to set makes 'in' operation
     # much, much faster.
     dic_serbian = set(dic_serbian_full)
+    print("BASIC INFO")
     print("Items in Croatian dictionary:\t%s" % len(dic_croatian))
     print("Items Serbian dictionary:\t%s" % len(dic_serbian_full))
     print("Uniques in Serbian dictionary:\t%s" % len(dic_serbian))
+    print("PATHS")
+    print("Serbian version will be saved to %s" % conf.PATH_SERBIAN)
+    print("Parsed version will be saved to %s" % conf.PATH_TMPPARSE)
     f_parse = open(conf.PATH_TMPPARSE, 'w')
     f_serbian = open(conf.PATH_SERBIAN, 'w')
-    print("Started parsing...")
+    print("Parsing started...")
     # Just counters
     perc_ten = int(len(dic_croatian) / 10)
     counter = 0
@@ -86,6 +90,15 @@ def croline_to_serbian(head_cyr_from_cro, line):
     """
     Convert a line from Croatian dictionary to
     Serbian version of the same line.
+
+    Example:
+    
+    IN
+    head:  летење
+    line:  ('letenje', 'letenje', '53', 'imenica')
+
+    OUT
+    летење летење 53 n
     """
     head = head_cyr_from_cro
     form = str(helpers.cyrrilic_check_convert(line[1]))

@@ -41,7 +41,7 @@ def compile_sources():
         text.append(template % (s, src[s]))
     return ''.join(text)
 
-def cyrrilic_check_convert(word):
+def cyrilic_check_convert(word):
     """
     Check/convert the word to Cyrillic script.
     
@@ -50,17 +50,19 @@ def cyrrilic_check_convert(word):
     form of the word.
     """
     # Is all text in this word Cyrillic?
+    # If yes, just return the word.
     allcyr = crconv.is_all_cyrillic(word)
+    if allcyr:
+        return word
     # What to do if not?
-    if not allcyr:
+    else:
         # First, check if the word contains only letters
         # of the Serbian alphabet (no x, y, q)
         if crconv.is_all_latin(word):
             # It's safe to convert it to Cyrilic.
-            allcyr = crconv.convert(word)
-    # At this point allcyr should be False for all
-    # "invalid" words compared to Cyrillic alphabet   
-    return allcyr
+            return crconv.convert(word)
+        else:
+            return False
 
 def perc(x, y, r=2):
     """

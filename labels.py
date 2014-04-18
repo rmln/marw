@@ -50,7 +50,7 @@ LB = {'cases_full':{0:'nominative',
 
       'nounc_classes_desc': {1:"Masculine nouns ending in vowel or neuter nouns ending in -о or -е.",
                              2:'Nouns ending in -а (mostly feminine, but also some masculine).',
-                             3:'Feminine nouns ending in consonant, with -и in genitive and almost all other cases. '
+                             3:'Feminine nouns ending in consonant, with -и in genitive and almost all other cases.'
                              }
       
 }

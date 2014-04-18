@@ -46,6 +46,7 @@ PARSE_EXTENSIONS = ('.txt',)
 
 # Applies to web gui at http://srmorph.languagebits.com/
 SETCACHEON = False
+PATH_MO = r'/home/romeo/code/gui-srmorph/localize/translations'
 
 corpus_sources = {'dict-sr': "Serbian (Cyrillic and Latin) Hunspell spelling dictionary by Goran Rakić.\nURL https://gitorious.org/dict-sr",
 

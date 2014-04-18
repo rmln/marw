@@ -60,11 +60,14 @@ def extract_words(text, f_errors, fname):
         s = s.strip()
         s = s.lower()
         s = ''.join(c for c in s if c not in exclude)
-        s = helpers.cyrrilic_check_convert(s)
-        if s == False:
-            f_errors.write("noallcyr in %s: '%s'\n" % (fname, s))
-        if (s not in ('', '\n', '\r')):
-            words.append(s)
+        wconverted = helpers.cyrilic_check_convert(s)
+        if wconverted == False:
+            f_errors.write("noallcyr in %s: '%s'\n" % (fname, wconverted))
+        else:
+            if (wconverted not in ('', '\n', '\r')):
+                words.append(wconverted)
+    #print('73 is %s' %  words[73])
+    #sys.exit(0)
     return words
     
 
@@ -127,9 +130,9 @@ def parse_all_files(overwrite=False, usecroatian=conf.SETUSECRO):
         wordsunique = len(set(ptext))
         percentage = get_perc(wordsunique, wordsall)
         print("\twords %s\tunique %s\tunique %s%% " % \
-                  (wordsunique, wordsall, percentage))
+                  (wordsall, wordsunique, percentage))
         print("words %s\tunique %s\tunique %s%%\t%s" % \
-                  (wordsunique, wordsall, percentage, f),
+                  (wordsall, wordsunique, percentage, f),
               file=logfile)
         wordcount = wordcount + len(ptext)
         open(os.path.join(conf.PATH_PARSED, f), 
@@ -147,9 +150,11 @@ def load_dictionaries(fromclass=False):
     Load available dictionaries.
     """
     corpus = []
+    print("Loading dictionaries and removing line breaks...")
     for f in get_parsedlist(show=False):
         pf = os.path.join(conf.PATH_PARSED, f)
         content = open(pf, mode='r').readlines()
+        content = [c.strip('\n') for c in content]
         corpus = corpus + content
     # Assert that there are no spaces/endlines in
     # randomly selected word.
