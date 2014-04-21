@@ -22,7 +22,7 @@ HUNSPELL_PATH = os.path.join(PATH_TEXTS, 'hunspell-sr.txt')
 HUNSPELL_DIFF_PATH = os.path.join(PATH, 'data', 'hunspell-diff.txt') 
 
 # Path to Goran Igaly's Dictionary of Croatian Languages
-PATH_CROD = os.path.join(PATH, 'data', 'HR_Txt_538.txt')
+PATH_CROD = os.path.join(PATH, 'data', 'HR_Txt-601.txt')
 # Igaly's Dictionatry uses several columns, but we need only one
 # for corpus creation, so the prepared file is stored as NAME_PARSED_CRO.
 NAME_PARSED_CRO = 'croatian.txt'

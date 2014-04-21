@@ -12,7 +12,9 @@ Switches:
 -P     --parseclean        Parse as above, but overwrite already parsed
                            files.
 
--c     --crostats          Return stats about the Croatian dictionary. 
+-c     --crostats          Return stats about the Croatian dictionary.
+
+-C     --crodb             Populate the database. 
 
 -b     --parsecrobase      Parse the base (first column) in the Croatian
                            dictionary.
@@ -36,14 +38,15 @@ from tools import createcorpus
 from text import makewords
 
 
-args_short = 'hpPcbeE'
+args_short = 'hpPcbeEC'
 args_long = ['help',
              'parse',
              'parseclean',
              'crostats',
              'parsecrobase',
              'exportcorpus',
-             'exportcorpusnp']
+             'exportcorpusnp',
+             'crodb']
 
 if __name__ == "__main__":
     args = sys.argv[1:]
@@ -69,3 +72,5 @@ if __name__ == "__main__":
         if o in ('-E', '--exportcorpusnp'):
             createcorpus.generate_corpus(overwrite=False)
             createcorpus.pack_corpus()
+        if o in ('-C', '--crodb'):
+            croparser.crobase_to_jsondb()
