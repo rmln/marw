@@ -70,16 +70,13 @@ two_char = {'Њ':'NJ', 'Џ':'DŽ', 'Љ':'LJ'}
 INTERPUNCTION_CAPLETTER = "!?.'„“" + '"' + " " + "»«–…"
 
 standard_exc = \
-"""
-{"injekci": "\u0438\u043d\u0458\u0435\u043a\u0446\u0438", 
-"nad\u017eivlj": "\u043d\u0430\u0434\u0436\u0438\u0432\u0459", 
-"konjuga": "\u043a\u043e\u043d\u0458\u0443\u0433\u0430", 
-"pod\u017enjeti": "\u043f\u043e\u0434\u0436\u045a\u0435\u0442\u0438", 
-"od\u017eivljen": "\u043e\u0434\u0436\u0438\u0432\u0459\u0435\u043d", 
-"nad\u017enje": "\u043d\u0430\u0434\u0436\u045a\u0435", 
-"od\u017eivlj": "\u043e\u0434\u0436\u0438\u0432\u0459"
-}
-"""
+{'injekci': 'инјекци',
+ 'konjuga': 'конјуга',
+ 'nadživlj': 'надживљ',
+ 'nadžnje': 'наджње',
+ 'odživlj': 'одживљ',
+ 'odživljen': 'одживљен',
+ 'podžnjeti': 'поджњети'}
 
 class Replace:
     """
@@ -145,6 +142,8 @@ class CirConv:
         # not present.
         if path and len(exception_files):
             self.load_exceptions(exception_files)
+        else:
+            self.exception_elements.append(standard_exc)
         # Variants?
         if variants and len(exception_files):
             self._make_variants()
@@ -212,7 +211,7 @@ class CirConv:
         self.result = self._charreplace(self.text, mode='tocyr')
 
         
-    def convert(self, text):
+    def convert(self, text, prepare=False):
         """
         If text is in Cyrillic, convert it to Latin and
         vice versa. 
@@ -269,7 +268,7 @@ class CirConv:
         self.charmap_tocyr = dict([v,k] for k,v in cyr.items())
         
 
-    def _prepare_cyrillic(self, text):
+    def _prepare_for_cyrillic(self, text):
         """
         Prepare text for conversion to Cyrillic.
 
@@ -285,7 +284,7 @@ class CirConv:
         return text
 
 
-    def _prepare_latin(self, text):
+    def _prepare_for_latin(self, text):
         """
         Prepare text for conversion to Latin.
 
@@ -330,6 +329,7 @@ class CirConv:
         """
         Replace custom strings.
         """
+        print("I got", text)
         # Go throught self.exceptions list, that holds
         # all dictionaries correspondng to files loaded
         # by Replace in __init__.
@@ -341,6 +341,7 @@ class CirConv:
                 if string_search in text:
                     text = text.replace(string_search, 
                            exception_dictionary[string_search])
+        print("I will return", text)
         return text
 
 
@@ -348,22 +349,24 @@ class CirConv:
         """
         Replace characters in the input text.
         """
+        print("charreplace got", text)
         # Replace custom strings ("exceptions")
         text = self._excreplace(text)
         # Create lists and dictionary
         if mode == 'tocyr':
             charkeys = self.charmap_tocyr.keys()
             charmap = self.charmap_tocyr
-            text = self._prepare_cyrillic(text)
+            text = self._prepare_for_cyrillic(text)
         elif mode == 'tolat':
             charkeys = self.charmap_tolat.keys()
             charmap = self.charmap_tolat
-            text = self._prepare_latin(text)
+            text = self._prepare_for_latin(text)
         else:
             raise ValueError("Mode must be 'tocyr' or 'tolat'.")
         # Replace the characters
         for letter in charkeys:
             if letter in text:
                 text = text.replace(letter, charmap[letter])
+        print("charreplace will return", text)
         return text
 
