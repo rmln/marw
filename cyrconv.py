@@ -341,7 +341,6 @@ class CirConv:
                 if string_search in text:
                     text = text.replace(string_search, 
                            exception_dictionary[string_search])
-        print("I will return", text)
         return text
 
 
@@ -349,7 +348,6 @@ class CirConv:
         """
         Replace characters in the input text.
         """
-        print("charreplace got", text)
         # Replace custom strings ("exceptions")
         text = self._excreplace(text)
         # Create lists and dictionary
@@ -367,6 +365,5 @@ class CirConv:
         for letter in charkeys:
             if letter in text:
                 text = text.replace(letter, charmap[letter])
-        print("charreplace will return", text)
         return text
 
